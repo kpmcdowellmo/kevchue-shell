@@ -1,8 +1,4 @@
 #include "commands.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/wait.h>
-#include <unistd.h>
 
 const char *__builtins_names[] = {"cd", "help", "exit"};
 
