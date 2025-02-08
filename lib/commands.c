@@ -113,6 +113,7 @@ int __execute_command(char *command, char **args) {
       perror("kevchues");
     }
     exit(EXIT_FAILURE);
+    // end child.
   } else {
     // parent
     do {
