@@ -19,6 +19,6 @@ int main() {
     free(input);
     free(command.flags);
   } while (status);
-  // free the things.
+
   return 0;
 }
