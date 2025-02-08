@@ -7,10 +7,10 @@
 const char *__builtins_names[] = {"cd", "help", "exit"};
 
 int __cd(char **args) {
-  if (args[1] == NULL) {
+  if (args[0] == NULL) {
     perror("kevchue!: expected argument to \"cd\"\n");
   } else {
-    if (chdir(args[1]) != 0) {
+    if (chdir(args[0]) != 0) {
       perror("kevchue!: Failed to change directory.");
     }
   }
@@ -79,11 +79,12 @@ Command get_command(char *input_str) {
   char **flags = (char **)malloc(buffer_size);
 
   char *flag = strtok(NULL, " ");
+  printf("Flag: %s", flag);
   while (flag != NULL) {
     flags_length += strlen(flag);
     if (flags_length > buffer_size) {
       buffer_size += buffer_size - flags_length;
-      char **new_flags = (char **)malloc(buffer_size);
+      char **new_flags = (char **)realloc(flags, buffer_size);
       if (new_flags == NULL) {
         free(flags);
         puts("Memory allocation failed when processing command!");
